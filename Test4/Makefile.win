@@ -1,0 +1,30 @@
+# Project: Project1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = transformation.o $(RES)
+LINKOBJ  = transformation.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -L"C:/OpenCV2.1/lib" C:/OpenCV2.1/lib/cv210.lib C:/OpenCV2.1/lib/cv210d.lib C:/OpenCV2.1/lib/cvaux210.lib C:/OpenCV2.1/lib/cvaux210d.lib C:/OpenCV2.1/lib/cxcore210.lib C:/OpenCV2.1/lib/cxcore210d.lib C:/OpenCV2.1/lib/cxts210.lib C:/OpenCV2.1/lib/highgui210.lib C:/OpenCV2.1/lib/highgui210d.lib C:/OpenCV2.1/lib/ml210.lib C:/OpenCV2.1/lib/ml210d.lib C:/OpenCV2.1/lib/opencv_ffmpeg210.lib C:/OpenCV2.1/lib/opencv_ffmpeg210d.lib  
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/OpenCV2.1/include/opencv" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"C:/OpenCV2.1/include/opencv" 
+BIN  = Project4.exe
+CXXFLAGS = $(CXXINCS)   -L"C:\OpenCV2.1\lib" -lcxcore210 -lcv210 -lcvaux210 -lhighgui210 -lml210
+CFLAGS = $(INCS)   -L"C:\OpenCV2.1\lib" -lcxcore210 -lcv210 -lcvaux210 -lhighgui210 -lml210
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Project4.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Project4.exe" $(LIBS)
+
+transformation.o: transformation.c
+	$(CPP) -c transformation.c -o transformation.o $(CXXFLAGS)
